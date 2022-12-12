@@ -1,0 +1,96 @@
+{
+    "name": "WindowsVM",
+    "id": "/subscriptions/947fe645-cd66-4d4a-9e07-eb2f3ec68caf/resourceGroups/WindowsVM_group/providers/Microsoft.Compute/virtualMachines/WindowsVM",
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "eastus2",
+    "properties": {
+        "vmId": "b01ca293-1624-4480-abbf-b9413ec32f87",
+        "hardwareProfile": {
+            "vmSize": "Standard_B2ms"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "microsoftwindowsdesktop",
+                "offer": "windows-11",
+                "sku": "win11-21h2-pro",
+                "version": "latest",
+                "exactVersion": "22000.1219.221105"
+            },
+            "osDisk": {
+                "osType": "Windows",
+                "name": "WindowsVM_OsDisk_1_e09ab3ffbe9d43958131a812786db6b9",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "id": "/subscriptions/947fe645-cd66-4d4a-9e07-eb2f3ec68caf/resourceGroups/WINDOWSVM_GROUP/providers/Microsoft.Compute/disks/WindowsVM_OsDisk_1_e09ab3ffbe9d43958131a812786db6b9"
+                },
+                "deleteOption": "Delete"
+            },
+            "dataDisks": []
+        },
+        "osProfile": {
+            "computerName": "WindowsVM",
+            "adminUsername": "SanLab_Admin",
+            "windowsConfiguration": {
+                "provisionVMAgent": true,
+                "enableAutomaticUpdates": true,
+                "patchSettings": {
+                    "patchMode": "AutomaticByOS",
+                    "assessmentMode": "ImageDefault",
+                    "enableHotpatching": false
+                }
+            },
+            "secrets": [],
+            "allowExtensionOperations": true,
+            "requireGuestProvisionSignal": true
+        },
+        "securityProfile": {
+            "uefiSettings": {
+                "secureBootEnabled": true,
+                "vTpmEnabled": true
+            },
+            "securityType": "TrustedLaunch"
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/947fe645-cd66-4d4a-9e07-eb2f3ec68caf/resourceGroups/WindowsVM_group/providers/Microsoft.Network/networkInterfaces/windowsvm896",
+                    "properties": {
+                        "deleteOption": "Delete"
+                    }
+                }
+            ]
+        },
+        "licenseType": "Windows_Client",
+        "provisioningState": "Succeeded"
+    },
+    "resources": [
+        {
+            "name": "GuestAttestation",
+            "id": "/subscriptions/947fe645-cd66-4d4a-9e07-eb2f3ec68caf/resourceGroups/WindowsVM_group/providers/Microsoft.Compute/virtualMachines/WindowsVM/extensions/GuestAttestation",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "eastus2",
+            "properties": {
+                "autoUpgradeMinorVersion": true,
+                "provisioningState": "Succeeded",
+                "publisher": "Microsoft.Azure.Security.WindowsAttestation",
+                "type": "GuestAttestation",
+                "typeHandlerVersion": "1.0",
+                "settings": {
+                    "AttestationConfig": {
+                        "MaaSettings": {
+                            "maaEndpoint": "",
+                            "maaTenantName": "GuestAttestation"
+                        },
+                        "AscSettings": {
+                            "ascReportingEndpoint": "",
+                            "ascReportingFrequency": ""
+                        },
+                        "useCustomToken": "false",
+                        "disableAlerts": "false"
+                    }
+                }
+            }
+        }
+    ]
+}
