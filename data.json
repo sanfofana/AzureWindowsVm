@@ -2,9 +2,9 @@
     "name": "WindowsVM",
     "id": "/subscriptions/947fe645-cd66-4d4a-9e07-eb2f3ec68caf/resourceGroups/WindowsVM_group/providers/Microsoft.Compute/virtualMachines/WindowsVM",
     "type": "Microsoft.Compute/virtualMachines",
-    "location": "eastus2",
+    "location": "", #azure region need to be add here
     "properties": {
-        "vmId": "b01ca293-1624-4480-abbf-b9413ec32f87",
+        "vmId": "", #vm id here
         "hardwareProfile": {
             "vmSize": "Standard_B2ms"
         },
@@ -30,7 +30,7 @@
         },
         "osProfile": {
             "computerName": "WindowsVM",
-            "adminUsername": "SanLab_Admin",
+            "adminUsername": "Username",  #need to add here
             "windowsConfiguration": {
                 "provisionVMAgent": true,
                 "enableAutomaticUpdates": true,
@@ -69,7 +69,7 @@
             "name": "GuestAttestation",
             "id": "/subscriptions/947fe645-cd66-4d4a-9e07-eb2f3ec68caf/resourceGroups/WindowsVM_group/providers/Microsoft.Compute/virtualMachines/WindowsVM/extensions/GuestAttestation",
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "location": "eastus2",
+            "location": "", #location need to be added
             "properties": {
                 "autoUpgradeMinorVersion": true,
                 "provisioningState": "Succeeded",
